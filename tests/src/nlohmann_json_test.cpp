@@ -12,6 +12,8 @@ TEST_CASE("absolute_time_point json") {
     REQUIRE(p1 == p2);
     REQUIRE(json.dump() == "13835058055282163712");
   }
+
+  REQUIRE_THROWS(nlohmann::json::array().get<pqrs::osx::chrono::absolute_time_point>());
 }
 
 TEST_CASE("absolute_time_duration json") {
@@ -32,4 +34,6 @@ TEST_CASE("absolute_time_duration json") {
     REQUIRE(d1 == d2);
     REQUIRE(json.dump() == "-6917529027641081856");
   }
+
+  REQUIRE_THROWS(nlohmann::json::array().get<pqrs::osx::chrono::absolute_time_duration>());
 }
