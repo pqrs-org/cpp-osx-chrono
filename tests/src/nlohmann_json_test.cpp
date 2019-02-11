@@ -13,7 +13,30 @@ TEST_CASE("absolute_time_point json") {
     REQUIRE(json.dump() == "13835058055282163712");
   }
 
-  REQUIRE_THROWS(nlohmann::json::array().get<pqrs::osx::chrono::absolute_time_point>());
+  {
+    nlohmann::json json = 12.2;
+    auto p = json.get<pqrs::osx::chrono::absolute_time_point>();
+    REQUIRE(p == pqrs::osx::chrono::absolute_time_point(12));
+  }
+
+  REQUIRE_THROWS_AS(
+      nlohmann::json().get<pqrs::osx::chrono::absolute_time_point>(),
+      pqrs::json::unmarshal_error);
+  REQUIRE_THROWS_WITH(
+      nlohmann::json().get<pqrs::osx::chrono::absolute_time_point>(),
+      "json must be number, but is `null`");
+  REQUIRE_THROWS_WITH(
+      nlohmann::json(true).get<pqrs::osx::chrono::absolute_time_point>(),
+      "json must be number, but is `true`");
+  REQUIRE_THROWS_WITH(
+      nlohmann::json::object().get<pqrs::osx::chrono::absolute_time_point>(),
+      "json must be number, but is `{}`");
+  REQUIRE_THROWS_WITH(
+      nlohmann::json::array().get<pqrs::osx::chrono::absolute_time_point>(),
+      "json must be number, but is `[]`");
+  REQUIRE_THROWS_WITH(
+      nlohmann::json("1234").get<pqrs::osx::chrono::absolute_time_point>(),
+      "json must be number, but is `\"1234\"`");
 }
 
 TEST_CASE("absolute_time_duration json") {
@@ -27,6 +50,12 @@ TEST_CASE("absolute_time_duration json") {
   }
 
   {
+    nlohmann::json json = 12.2;
+    auto p = json.get<pqrs::osx::chrono::absolute_time_duration>();
+    REQUIRE(p == pqrs::osx::chrono::absolute_time_duration(12));
+  }
+
+  {
     int64_t i64 = -6917529027641081856ll; // -(2^62 + 2^61)
     pqrs::osx::chrono::absolute_time_duration d1(i64);
     nlohmann::json json = d1;
@@ -35,5 +64,22 @@ TEST_CASE("absolute_time_duration json") {
     REQUIRE(json.dump() == "-6917529027641081856");
   }
 
-  REQUIRE_THROWS(nlohmann::json::array().get<pqrs::osx::chrono::absolute_time_duration>());
+  REQUIRE_THROWS_AS(
+      nlohmann::json().get<pqrs::osx::chrono::absolute_time_duration>(),
+      pqrs::json::unmarshal_error);
+  REQUIRE_THROWS_WITH(
+      nlohmann::json().get<pqrs::osx::chrono::absolute_time_duration>(),
+      "json must be number, but is `null`");
+  REQUIRE_THROWS_WITH(
+      nlohmann::json(true).get<pqrs::osx::chrono::absolute_time_duration>(),
+      "json must be number, but is `true`");
+  REQUIRE_THROWS_WITH(
+      nlohmann::json::object().get<pqrs::osx::chrono::absolute_time_duration>(),
+      "json must be number, but is `{}`");
+  REQUIRE_THROWS_WITH(
+      nlohmann::json::array().get<pqrs::osx::chrono::absolute_time_duration>(),
+      "json must be number, but is `[]`");
+  REQUIRE_THROWS_WITH(
+      nlohmann::json("1234").get<pqrs::osx::chrono::absolute_time_duration>(),
+      "json must be number, but is `\"1234\"`");
 }
