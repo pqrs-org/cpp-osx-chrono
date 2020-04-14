@@ -7,7 +7,7 @@ A utility for `mach_absolute_time`.
 
 ## Requirements
 
-cpp-osx-iokit_types depends the following classes.
+cpp-osx-chrono depends the following classes.
 
 - [type_safe](https://github.com/foonathan/type_safe)
 
