@@ -1,5 +1,5 @@
 [![Build Status](https://github.com/pqrs-org/cpp-osx-chrono/workflows/CI/badge.svg)](https://github.com/pqrs-org/cpp-osx-chrono/actions)
-[![License](https://img.shields.io/badge/license-Boost%20Software%20License-blue.svg)](https://github.com/pqrs-org/cpp-osx-chrono/blob/master/LICENSE.md)
+[![License](https://img.shields.io/badge/license-Boost%20Software%20License-blue.svg)](https://github.com/pqrs-org/cpp-osx-chrono/blob/main/LICENSE.md)
 
 # cpp-osx-chrono
 
