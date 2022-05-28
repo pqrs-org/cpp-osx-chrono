@@ -13,9 +13,5 @@ project (test)
 
 add_executable(
   test
-  absolute_time_point_test.cpp
-  absolute_time_duration_test.cpp
-  chrono_test.cpp
-  nlohmann_json_test.cpp
   test.cpp
 )
