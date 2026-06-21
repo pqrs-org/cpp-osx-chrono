@@ -1,6 +1,6 @@
 #pragma once
 
-// pqrs::osx::chrono v2.3
+// pqrs::osx::chrono v2.4.0
 
 // (C) Copyright Takayama Fumihiko 2019.
 // Distributed under the Boost Software License, Version 1.0.
