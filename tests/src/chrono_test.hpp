@@ -2,7 +2,7 @@
 #include <iostream>
 #include <pqrs/osx/chrono.hpp>
 
-void run_chrono_test(void) {
+void run_chrono_test() {
   using namespace boost::ut;
   using namespace boost::ut::literals;
 

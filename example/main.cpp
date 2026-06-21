@@ -2,7 +2,7 @@
 #include <pqrs/osx/chrono.hpp>
 #include <thread>
 
-int main(void) {
+int main() {
   auto absolute_time_point1 = pqrs::osx::chrono::mach_absolute_time_point();
 
   std::this_thread::sleep_for(std::chrono::milliseconds(100));

@@ -2,7 +2,7 @@
 #include <iostream>
 #include <pqrs/osx/chrono/extra/nlohmann_json.hpp>
 
-void run_nlohmann_json_test(void) {
+void run_nlohmann_json_test() {
   using namespace boost::ut;
   using namespace boost::ut::literals;
 

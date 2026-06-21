@@ -1,7 +1,8 @@
 #include <boost/ut.hpp>
 #include <pqrs/osx/chrono.hpp>
+#include <sstream>
 
-void run_absolute_time_duration_test(void) {
+void run_absolute_time_duration_test() {
   using namespace boost::ut;
   using namespace boost::ut::literals;
 
@@ -10,6 +11,12 @@ void run_absolute_time_duration_test(void) {
       int64_t i64 = 6917529027641081856; // 2^62 + 2^61
       pqrs::osx::chrono::absolute_time_duration d(i64);
       expect(type_safe::get(d) == i64);
+
+      std::stringstream stream;
+      stream << d;
+      expect(stream.str() == "6917529027641081856");
+
+      expect(std::hash<pqrs::osx::chrono::absolute_time_duration>{}(d) == std::hash<int64_t>{}(i64));
     }
     {
       int64_t i64 = -6917529027641081856; // -(2^62 + 2^61)

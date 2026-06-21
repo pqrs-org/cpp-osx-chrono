@@ -3,7 +3,7 @@
 #include "chrono_test.hpp"
 #include "nlohmann_json_test.hpp"
 
-int main(void) {
+int main() {
   run_absolute_time_duration_test();
   run_absolute_time_point_test();
   run_chrono_test();
